@@ -1,7 +1,7 @@
-package scaler.lld1.multithreading.addersubtractor;
+package scaler.lld1.multithreading.addersubtractor.synchronize;
 
-
-import java.util.concurrent.CompletableFuture;
+//import java.util.concurrent.CompletableFuture;
+//Use synchronized block when there is problem of concurrency
 
 public class Client {
     public static void main(String[] args) throws InterruptedException {
