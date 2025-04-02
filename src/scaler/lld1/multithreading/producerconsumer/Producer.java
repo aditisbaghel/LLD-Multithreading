@@ -16,9 +16,11 @@ public class Producer implements Runnable{
     @Override
     public void run() {
         while(true) {
-            if (store.size() < maxSizeOfStore) {
-                System.out.println("Producer: "+name+" is producing . Current size :"+store.size());
-                store.add(new Shirt());
+            synchronized (store) {
+                if (store.size() < maxSizeOfStore) {
+                    System.out.println("Producer: " + name + " is producing . Current size :" + store.size());
+                    store.add(new Shirt());
+                }
             }
         }
     }

@@ -14,9 +14,11 @@ public class Consumer implements Runnable{
     @Override
     public void run() {
         while(true) {
-            if (!store.isEmpty()) {
-                System.out.println("Consumer: "+name+" is consuming . Current size :"+store.size());
-                store.remove();
+            synchronized (store) {
+                if (!store.isEmpty()) {
+                    System.out.println("Consumer: " + name + " is consuming . Current size :" + store.size());
+                    store.remove();
+                }
             }
         }
     }
